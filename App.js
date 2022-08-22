@@ -1,20 +1,25 @@
+import 'react-native-gesture-handler';
+import 'react-native-get-random-values';
+import React from 'react';
+import Main from './src/components/main';
+import MainStack from './src/navigation/main-stack';
+import { NativeRouter } from 'react-router-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar style="light" />
+      <NativeRouter>
+         
+        {/**   <MainStack />  Appbar para ver vistas por individual*/}
+        <MainStack />
+
+        
+        {/**  <Main /> Main para ver vistas por stack*/}
+        
+
+      </NativeRouter>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
