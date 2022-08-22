@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TouchableNativeFeedback, Text } from "react-native";
-import StyledText from "./styled-text";
+import { StyleSheet, View } from "react-native";
 import { Switch, Route, Redirect} from 'react-router-native';
 import AppBar from "../navigation/app-bar";
 import Home from "../pages/home";

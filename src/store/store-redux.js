@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 
 const initialState = {
-    password: "",
+    password: false,
     address: [],
-    seed: "",
+    seed: false,
     login: false,
 };
 

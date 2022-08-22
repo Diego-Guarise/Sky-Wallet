@@ -153,7 +153,6 @@ const Wallet = ({ navigation }) => {
 
     const logOutFunction = async () => {
         await SecureStore.setItemAsync("wallet", "");
-        await SecureStore.setItemAsync("historyWallet", "");
 
         store.dispatch({
             type: "SET_ADDRESS",

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, Text, } from "react-native";
 
 const styles = StyleSheet.create({
     textWhiteSmall: {

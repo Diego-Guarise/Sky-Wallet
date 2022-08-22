@@ -36,6 +36,8 @@ const CreateWalletComponent = () => {
 
     const checkData = async () => {
         if (passwordIsCorrect()) {
+            await createWallet(_password1);
+
             store.dispatch({
                 type: "SET_PASSWORD",
                 password: true
@@ -44,8 +46,6 @@ const CreateWalletComponent = () => {
                 type: "SET_SEED",
                 seed: true
             });
-            
-            await createWallet(_password1);
 
             let wallet = await decrypt(_password1);
 
@@ -53,7 +53,10 @@ const CreateWalletComponent = () => {
                 type: "SET_ADDRESS",
                 address: wallet.address
             });
-
+            store.dispatch({
+                type: "SET_LOGIN",
+                login: true
+            });
 
             const seed = wallet.mnemonic.phrase;
             setSeed(seed);

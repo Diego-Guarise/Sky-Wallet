@@ -39,11 +39,16 @@ const Home = ({ navigation }) => {
         return false;
     }
 
-    const checkData = () => {
+    const checkData = async () => {
         if (_seed) {
             if (passwordIsCorrect()) {
-                store.getState();
                 
+                let result = await importWallet(_seed, _password1);
+
+                if (result === "error") {
+                    return;
+                }
+                store.getState();
                 store.dispatch({
                     type: "SET_PASSWORD",
                     password: true
@@ -57,7 +62,6 @@ const Home = ({ navigation }) => {
                     login: true
                 });
 
-                importWallet(_seed, _password1);
 
                 setPassword1("");
                 setPassword2("");

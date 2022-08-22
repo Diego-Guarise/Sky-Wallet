@@ -7,12 +7,21 @@ import getStore from "../store/store-redux";
 const importWallet = async (mnemonic, password) => {
 
     const store = getStore();
-
-    const wallet = ethers.Wallet.fromMnemonic(mnemonic);
+    let wallet = null;
+    try {
+        wallet = ethers.Wallet.fromMnemonic(mnemonic);
+    } catch (error) {
+        alert("Something has gone wrong \nPlease check your mnemonic");
+        return "error";
+    }
 
     store.dispatch({
         type: "SET_ADDRESS",
         address: wallet.address
+    });
+    store.dispatch({
+        type: "SET_LOGIN",
+        login: true
     });
 
     let walletEncrypt = wallet.encrypt(password);
