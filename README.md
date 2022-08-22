@@ -111,7 +111,7 @@ Esta instancia es para hacer una transacción de una wallet a otra para esto se 
 	Esta funcion anonima contenida por la constante `transferFunction` utiliza la funcion 
 	`transaction( _pk, provider, _to, _ammount)` la cual toma la clave privada puesta por el usuario el provider, el destinatario y el monto, esta funcion crea un instancia de wallet con la clave privada y la conecta con el provider para luego utilizar el método `sendTransaction()` al cual se le proporciona el destinatario y el valor.
 #### History:
-La funcionalidad History utiliza la función anónima almacenada en la constante `historyFunction` y busca la address actual y llama a la función `history(address, network)` la cual se le pasa el argumento address y network para a través de `ethers.providers.EtherscanProvider(network)` devolver el provider para utilizar el método `getHistory(address)` con la dirección de la wallet, esto devuelve un objeto que luego es convertido en una cadena json para ser guardado en el dispositivo. Luego la función `history(address, network)`retorna el objeto para ser recorrido con el motivo de extraer el destinatario, la address de origen y el valor, estos valores son agregados a una variable para mostrarse en el PopUp de History que se abre al apretar dicho botón.
+La funcionalidad History utiliza la función anónima almacenada en la constante `historyFunction` y busca la address actual y llama a la función `history(address, network)` la cual se le pasa el argumento address y network para a través de `ethers.providers.EtherscanProvider(network)` devolver el provider para utilizar el método `getHistory(address)` con la dirección de la wallet. Luego la función `history(address, network)`retorna el objeto para ser recorrido con el motivo de extraer el destinatario, la address de origen y el valor, estos valores son agregados a una variable para mostrarse en el PopUp de History que se abre al apretar dicho botón.
 
  #### Log Out:
  Al hacer "Tap" en el botón log out nos saldrá un PopUp para confirmar que quieres salir de nuestra wallet. Al hacer esto la información sensible como la wallet guardada en el dispositivo y el historial de las transacciones son eliminados del dispositivo, al mismo tiempo en la store de redux se cambia el estado de la aplicación marcando el log out e eliminando la información.
@@ -131,6 +131,8 @@ Esta forma de navegación viene activada por defecto y acompaña el flujo de la 
 Para los estilo se intento aislar los estilos de las pages y los componentes para tenerlo todo aislado en un archivo llamado `theme.js` que contiene una constante llamada `theme`, esta misma es contiene un diccionario con la "key" correspondiente a un estilo y el "value" como un conjunto de propiedades para ese estilo. De esta manera se intento reducir la aparición de propiedades de estilos en las vistas y componentes.
 Por otro lado tenemos el archivo `styled-text.jsx` que brinda estilo de manera similar a la "app-bar".
 
+## Infraestructura
+![Infraestructura](https://github.com/Diego-Guarise/Icons-and-logos/blob/master/infraestructura.png?raw=true)
 
 ## Documentación
 React Native: 
@@ -144,4 +146,3 @@ Redux:
 Ethers:
 - https://jetsoanalin.github.io/EthersJsTutorialJetso/
 - https://docs.ethers.io/v5/
-
